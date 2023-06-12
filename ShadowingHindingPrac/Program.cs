@@ -6,6 +6,32 @@ using System.Threading.Tasks;
 
 namespace ShadowingHindingPrac {
 
+    internal class Program
+    {
+        class Animal
+        {
+            public virtual void Eat()
+            {
+                Console.WriteLine("촵촵촵촵!!!!");
+            }
+        }
+
+        class Dog : Animal { 
+            public void Eat()
+            {
+                Console.WriteLine("냠냠냠냠냠!!!!");
+            }
+        }
+
+        class Cat : Animal
+        {
+            public void Eat()
+            {
+                Console.WriteLine("냠냠냠냠냠!!!!");
+            }
+        }
+    }
+
     class Parent
     {
         public int variable = 273;
@@ -51,6 +77,16 @@ namespace ShadowingHindingPrac {
 
             child.Method2();
             p.Method2();
+
+            List<Animal> Animals = new List<Animal>()
+            {
+                new Dog(), new Cat(), new Cat(), new Dog(),
+                new Dog(), new Cat(), new Cat(), new Dog(),
+            };
+            foreach(var item in Animals)
+            {
+                item.Eat();
+            }
         }
     }
 }
